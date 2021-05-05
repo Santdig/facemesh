@@ -21,9 +21,16 @@ const videoElement = document.getElementsByClassName('input_video')[0];
 const canvasElement = document.getElementsByClassName('output_canvas')[0];
 const canvasCtx = canvasElement.getContext('2d');
 
-/*window.onload = (event) => {
+// Get the rendering context for WebGL
+/*var gl = getWebGLContext(canvasElement);
+if (!gl) {
+  console.log('Failed to get the rendering context for WebGL');
+  return;
+}*/
+
+window.onload = (event) => {
   videoElement.style.display = 'none';
-};*/
+};
 
 function onResults(results) {
   canvasCtx.save();
@@ -65,6 +72,10 @@ const camera = new Camera(videoElement, {
 });
 camera.start();
 </script>
+
+<!--<script src="lib/cuon-utils.js"></script>
+<script src="lib/webgl-utils.js"></script>
+<script src="lib/webgl-debug.js"></script>-->
 
 </body>
 </html>
